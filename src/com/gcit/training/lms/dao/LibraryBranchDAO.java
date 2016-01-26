@@ -5,32 +5,32 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gcit.training.lms.entity.Library_branch;
+import com.gcit.training.lms.entity.LibraryBranch;
 
-public class Library_branchDAO extends AbstractDAO {
-	public void create (Library_branch a) throws SQLException
+public class LibraryBranchDAO extends AbstractDAO {
+	public void create (LibraryBranch a) throws SQLException
 	{
 		save("insert into tbl_library_branch (branchId,branchName,branchAddress) values (?,?,?)",new Object[] { a.getBranchId(),a.getBranchName(),a.getBranchAddress() });
 	}
-	public void updateName(Library_branch a) throws SQLException {
+	public void updateName(LibraryBranch a) throws SQLException {
 		save("update tbl_library_branch set branchName = ? where branchId = ?",
 				new Object[] { a.getBranchName(),a.getBranchId() });
 	}
-	public void updateAddress(Library_branch a) throws SQLException {
+	public void updateAddress(LibraryBranch a) throws SQLException {
 		save("update tbl_library_branch set branchAddress = ? where branchId = ?",
 				new Object[] { a.getBranchName(),a.getBranchId() });
 	}
-	public void delete(Library_branch a) throws SQLException {
+	public void delete(LibraryBranch a) throws SQLException {
 		save("delete from tbl_library_branch where branchId = ?",
 				new Object[] { a.getBranchId() });
 	}
 	@Override
-	protected List<Library_branch> processResult(ResultSet rs) throws SQLException {
+	protected List<LibraryBranch> processResult(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
-		List<Library_branch> aList = new ArrayList<Library_branch>();
+		List<LibraryBranch> aList = new ArrayList<LibraryBranch>();
 		while(rs.next())
 		{
-			Library_branch a = new Library_branch();
+			LibraryBranch a = new LibraryBranch();
 			a.setBranchId(rs.getInt("branchId"));
 			a.setBranchName(rs.getString("branchName"));
 			a.setBranchAddress(rs.getString("branchAddress"));
@@ -38,8 +38,8 @@ public class Library_branchDAO extends AbstractDAO {
 		}
 		return aList;
 	}
-	public Library_branch readOne(int branchId) throws SQLException {
-		List<Library_branch> list = (List<Library_branch>) read(
+	public LibraryBranch readOne(int branchId) throws SQLException {
+		List<LibraryBranch> list = (List<LibraryBranch>) read(
 				"select * from tbl_library_branch where branchId = ?",
 				new Object[] { branchId });
 
@@ -49,8 +49,8 @@ public class Library_branchDAO extends AbstractDAO {
 			return null;
 		}
 	}
-	public List<Library_branch> readAll() throws SQLException {
-		return (List<Library_branch>) read("select * from tbl_library_branch", null);
+	public List<LibraryBranch> readAll() throws SQLException {
+		return (List<LibraryBranch>) read("select * from tbl_library_branch", null);
 	}
 
 }

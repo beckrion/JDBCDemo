@@ -1,6 +1,6 @@
 package com.gcit.training.lms.entity;
 
-public class Book_author {
+public class BookAuthor {
 	private Author author;
 	private Book book;
 	

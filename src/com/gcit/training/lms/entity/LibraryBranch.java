@@ -1,6 +1,6 @@
 package com.gcit.training.lms.entity;
 
-public class Library_branch {
+public class LibraryBranch {
 	private int branchId;
 	private String branchName;
 	private String branchAddress;

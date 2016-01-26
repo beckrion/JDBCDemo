@@ -1,8 +1,8 @@
 package com.gcit.training.lms.entity;
 
-public class Book_loans {
+public class BookLoans {
 	private Book book;
-	private Library_branch branch;
+	private LibraryBranch branch;
 	private Borrower borrower;
 	private String dateOut;
 	private String dueDate;
@@ -31,10 +31,10 @@ public class Book_loans {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	public Library_branch getBranch() {
+	public LibraryBranch getBranch() {
 		return branch;
 	}
-	public void setBranch(Library_branch branch) {
+	public void setBranch(LibraryBranch branch) {
 		this.branch = branch;
 	}
 	public Borrower getBorrower() {

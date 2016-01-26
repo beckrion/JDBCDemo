@@ -6,29 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gcit.training.lms.entity.Book;
-import com.gcit.training.lms.entity.Book_author;
-import com.gcit.training.lms.entity.Book_genres;
+import com.gcit.training.lms.entity.BookAuthor;
+import com.gcit.training.lms.entity.BookGenres;
 import com.gcit.training.lms.entity.Genre;
 import com.gcit.training.lms.entity.Publisher;
 
-public class Book_genresDAO extends AbstractDAO {
-	public void create(Book_genres a) throws SQLException{
+public class BookGenresDAO extends AbstractDAO {
+	public void create(BookGenres a) throws SQLException{
 		save("insert into tbl_book_genres (genre_id,bookId) values (?,?)",new Object[] {a.getGenre().getGenreId(),a.getBook().getBookId()});	
 	}
-	public void updateGen(Book_genres a) throws SQLException{
+	public void updateGen(BookGenres a) throws SQLException{
 		save("update tbl_book_genres set genre_id = ? where bookId = ?",new Object[] {a.getGenre().getGenreId(),a.getBook().getBookId()});	
 	}
-	public void delete(Book_genres p) throws SQLException {
+	public void delete(BookGenres p) throws SQLException {
 		save("delete from tbl_book_genres where bookId = ?",
 				new Object[] { p.getBook().getBookId()});
 	}
 	@Override
-	protected List<Book_genres> processResult(ResultSet rs) throws SQLException {
+	protected List<BookGenres> processResult(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
-		List<Book_genres> aList = new ArrayList<Book_genres>();
+		List<BookGenres> aList = new ArrayList<BookGenres>();
 		while(rs.next())
 		{
-			Book_genres a = new Book_genres();
+			BookGenres a = new BookGenres();
 			GenreDAO geRun = new GenreDAO();
 			Genre ge = geRun.readOne(rs.getInt("genre_id"));
 			BookDAO bkRun = new BookDAO();
@@ -39,8 +39,8 @@ public class Book_genresDAO extends AbstractDAO {
 		}
 		return aList;
 	}
-	public List<Book_genres> readAll() throws SQLException {
-		return (List<Book_genres>) read("select * from tbl_book_genres", null);
+	public List<BookGenres> readAll() throws SQLException {
+		return (List<BookGenres>) read("select * from tbl_book_genres", null);
 	}
 	
 

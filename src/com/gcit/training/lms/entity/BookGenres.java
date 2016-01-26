@@ -2,7 +2,7 @@ package com.gcit.training.lms.entity;
 
 
 
-public class Book_genres {
+public class BookGenres {
 	private Genre genre;
 	private Book book;
 	public Book getBook() {

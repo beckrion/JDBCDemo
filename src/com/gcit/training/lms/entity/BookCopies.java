@@ -1,8 +1,8 @@
 package com.gcit.training.lms.entity;
 
-public class Book_copies {
+public class BookCopies {
 	private Book book;
-	private Library_branch branch;
+	private LibraryBranch branch;
 	private int noOfCopies;
 	
 	public int getNoOfCopies() {
@@ -17,10 +17,10 @@ public class Book_copies {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	public Library_branch getBranch() {
+	public LibraryBranch getBranch() {
 		return branch;
 	}
-	public void setBranch(Library_branch branch) {
+	public void setBranch(LibraryBranch branch) {
 		this.branch = branch;
 	}
 }

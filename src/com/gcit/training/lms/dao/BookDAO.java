@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.gcit.training.lms.entity.Author;
 import com.gcit.training.lms.entity.Book;
+import com.gcit.training.lms.entity.Genre;
 import com.gcit.training.lms.entity.Publisher;
 
 public class BookDAO extends AbstractDAO {
@@ -25,6 +26,8 @@ public class BookDAO extends AbstractDAO {
 		for(Iterator<Author> i =au.iterator();i.hasNext(); ){
 			save("insert into tbl_book_authors (bookId,authorId) value(?,?)",new Object[]{bookId1,i.next().getAuthorId()});
 		}
+		List<Genre> ge = a.getGenre();
+		save("insert into tbl_book_genres (genre_id,bookId) values (?,?)",new Object[] {ge.get(0).getGenreId(),a.getBookId()});
 	}
 	public void update (Book a) throws SQLException
 	{
@@ -33,7 +36,7 @@ public class BookDAO extends AbstractDAO {
 	public void delete(Book a) throws SQLException {
 		save("delete from tbl_book where bookId = ?",new Object[]{a.getBookId()});
 		save("delete from tbl_book_authors where bookId = ?",new Object[]{a.getBookId()});
-
+		save("delete from tbl_book_genres where bookId = ?",new Object[]{a.getBookId()});
 	}
 	public void updateTitle (Book a) throws SQLException
 	{

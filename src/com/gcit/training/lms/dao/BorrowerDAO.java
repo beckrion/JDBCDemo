@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.gcit.training.lms.entity.Author;
 import com.gcit.training.lms.entity.Book;
-import com.gcit.training.lms.entity.Book_copies;
+import com.gcit.training.lms.entity.BookCopies;
 import com.gcit.training.lms.entity.Borrower;
 
 public class BorrowerDAO extends AbstractDAO {
